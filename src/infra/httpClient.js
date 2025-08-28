@@ -5,7 +5,7 @@ const logger = getLogger('HttpClient');
 
 class HttpClient {
   constructor(defaultHeaders = {}) {
-    this.baseUrl = process.env.BASE_URL;
+    this.baseUrl = process.env.BASE_URL || 'https://reqres.in/api' ;
     if (!this.baseUrl) {
         logger.error('BASE_URL is not defined in your .env file');
     }
