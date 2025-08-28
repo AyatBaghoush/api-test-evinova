@@ -20,7 +20,7 @@ jobs:
       run: docker build -t cucumber-tests .
 
     - name: Run tests inside Docker
-      run: docker run --rm -e BASE_URL=$BASE_URL cucumber-tests
+      run: docker run -e BASE_URL=$BASE_URL cucumber-tests
 
     - name: Copy report from container
       run: docker cp cucumber-container:/app/reports/cucumber-report.html ./reports/
