@@ -7,5 +7,5 @@ RUN npm install
 
 COPY . .
 
-# Run tests
-RUN npm run test
+# Run tests 
+RUN npm run test:ci
