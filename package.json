@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js ./functional-tests/features --require ./functional-tests/step-definitions/**/*.js"
+    "test": "cucumber-js",
+    "report:generate": "npx allure generate --clean ./reports/allure-results -o ./reports/allure-report",
+    "report:open": "npx allure open ./reports/allure-report",
+    "test:report": "npm run test || true && npm run report:generate && npm run report:open"
   },
   "repository": {
-    "type": "git",
+    "type": "gsit",
     "url": "git+https://github.com/AyatBaghoush/api-test-evinova.git"
   },
   "keywords": [],
