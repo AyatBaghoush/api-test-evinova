@@ -1,5 +1,7 @@
 require('dotenv').config({ path: './src/config/.env' });
 const request = require('supertest');
+const getLogger = require('../../src/helpers/logger');
+const logger = getLogger('HttpClient');
 
 class HttpClient {
   constructor(defaultHeaders = {}) {
