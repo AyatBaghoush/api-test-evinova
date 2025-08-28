@@ -9,6 +9,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    env:
+      BASE_URL: 'https://reqres.in/api' 
+      
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
