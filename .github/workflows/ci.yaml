@@ -1,0 +1,35 @@
+name: Evinova API Tests CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Docker
+      run: echo "Docker is pre-installed on GitHub runners"
+
+    - name: Build Docker image
+      run: docker build -t cucumber-tests .
+
+    - name: Run tests inside Docker
+      run: docker run --name cucumber-container cucumber-tests
+
+    - name: Copy report from container
+      run: docker cp cucumber-container:/app/reports/cucumber-report.html ./reports/
+
+    - name: Upload Cucumber HTML Report
+      uses: actions/upload-artifact@v3
+      with:
+        name: cucumber-report
+        path: ./reports/cucumber-report.html
+
+    - name: Cleanup container
+      run: docker rm cucumber-container
