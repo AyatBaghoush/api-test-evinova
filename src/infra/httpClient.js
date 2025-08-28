@@ -4,12 +4,20 @@ const getLogger = require('../../src/helpers/logger');
 const logger = getLogger('HttpClient');
 
 class HttpClient {
-  constructor(defaultHeaders = {}) {
+  constructor() {
     this.baseUrl = process.env.BASE_URL || 'https://reqres.in/api' ;
     if (!this.baseUrl) {
         logger.error('BASE_URL is not defined in your .env file');
     }
-    this.defaultHeaders = JSON.parse(process.env.DEFAULT_HEADERS) || defaultHeaders;
+    if (!process.env.DEFAULT_HEADERS)
+    {
+        logger.warn('DEFAULT_HEADERS is not defined in your .env file. Using empty headers.');
+    }
+    else {
+      this.defaultHeaders =  {"x-api-key":"reqres-free-v1","Accept":"*/*"};
+    }
+
+    
   }
 
   _mergeHeaders(headers = {}) {
