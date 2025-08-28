@@ -32,4 +32,7 @@ jobs:
         path: ./reports/cucumber-report.html
 
     - name: Cleanup container
-      run: docker rm cucumber-container
+      run: |
+        docker stop cucumber-tests-container
+        docker rm cucumber-tests-container
+
