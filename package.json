@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "cucumber-js",
+    "test:ci": "npx cucumber-js --format json:./reports/cucumber.json",
     "report:generate": "npx allure generate --clean ./reports/allure-results -o ./reports/allure-report",
     "report:open": "npx allure open ./reports/allure-report",
     "test:report": "npm run test || true && npm run report:generate && npm run report:open"
@@ -22,6 +23,7 @@
   "description": "",
   "devDependencies": {
     "@cucumber/cucumber": "^12.2.0",
+    "@cucumber/html-formatter": "^21.14.0",
     "allure-commandline": "^2.34.1",
     "allure-cucumberjs": "^3.3.3",
     "chai": "^6.0.1",
