@@ -23,7 +23,7 @@ jobs:
       run: docker run -e BASE_URL=$BASE_URL cucumber-tests
 
     - name: Copy report from container
-      run: docker cp cucumber-container:/app/reports/cucumber-report.html ./reports/
+      run: docker cp cucumber-tests:/app/reports/cucumber-report.html ./reports/
 
     - name: Upload Cucumber HTML Report
       uses: actions/upload-artifact@v4
