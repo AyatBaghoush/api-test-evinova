@@ -1,3 +1,3 @@
 node_modules/
 .DS_Store
-src/congi/.env
+src/config/.env
