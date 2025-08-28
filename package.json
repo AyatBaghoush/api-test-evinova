@@ -1,0 +1,27 @@
+{
+  "name": "api-test-evinova",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AyatBaghoush/api-test-evinova.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AyatBaghoush/api-test-evinova/issues"
+  },
+  "homepage": "https://github.com/AyatBaghoush/api-test-evinova#readme",
+  "description": "",
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.2.0",
+    "allure-commandline": "^2.34.1",
+    "allure-cucumberjs": "^3.3.3",
+    "jest": "^30.1.1",
+    "supertest": "^7.1.4"
+  }
+}
