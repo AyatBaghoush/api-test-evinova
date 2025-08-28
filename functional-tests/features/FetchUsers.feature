@@ -6,11 +6,8 @@ Feature: Fetching Users
 
 @fetchUsers
 Scenario: Listing all users of the application
-  Given The "Fetch Users" endpoint is available
-  And   I set query params
-        | key      | value |
-        | page     | 2     |
-        | per_page | 6     |
-  When  I send GET HTTP request
-  Then  I receive HTTP response code "200"
+  Given The "Fetch Users" service is available
+  #And I request page <page> with <per_page> users per page
+  When  I retrieve the list of users
+  Then  I should receive a successful response 200
   And   Response should contain list of users
