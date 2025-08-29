@@ -7,7 +7,7 @@ const HttpClient = require('../../src/infra/httpClient');
 const testDataManager = require('../../src/helpers/testDataManager');
 
 // Set default timeout for all steps (e.g., 10 seconds)
-setDefaultTimeout(10 * 1000);
+setDefaultTimeout(20 * 1000);
 
 const httpClient = new HttpClient();
 

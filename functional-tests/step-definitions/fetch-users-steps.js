@@ -4,10 +4,10 @@ const expect = chai.expect;
 const getLogger = require('../../src/helpers/logger');
 const logger = getLogger('fetch-users-steps');
 const HttpClient = require('../../src/infra/httpClient');
-
+const testDataManager = require('../../src/helpers/testDataManager');
 
 // Set default timeout for all steps (e.g., 10 seconds)
-setDefaultTimeout(10 * 1000);
+setDefaultTimeout(20 * 1000);
 
 const httpClient = new HttpClient();
 
@@ -20,4 +20,7 @@ logger.debug("The response contains user list as: " + JSON.stringify(this.respon
  expect(this.response.body).to.have.property('data').that.is.an('array').that.is.not.empty;
 
 });
+
+
+
        

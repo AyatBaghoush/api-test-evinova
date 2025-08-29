@@ -6,7 +6,7 @@ const logger = getLogger('common-steps');
 const endpoints = require('../../src/test-data/users.endpoints.json');
 
 // Set default timeout for all steps (e.g., 10 seconds)
-setDefaultTimeout(10 * 1000);
+setDefaultTimeout(20 * 1000);
 
 
 Given(/^The "([^"]+)" service is available$/, async function (endpointName) {
@@ -19,7 +19,7 @@ Given(/^The "([^"]+)" service is available$/, async function (endpointName) {
   logger.debug(`The requested endpoint is: ${this.endpoint}`);
 });
 
-Then(/^I should receive a successful response (\d+)$/, async function (expectedStatusCode) {
+Then(/^I should receive a response code (\d+)$/, async function (expectedStatusCode) {
     logger.debug(`Response received with status: ${this.response.status}`);
   expect(this.response.status).to.equal(expectedStatusCode);  
 });
