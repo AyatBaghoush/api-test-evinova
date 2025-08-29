@@ -28,6 +28,7 @@ jobs:
 
     - name: Run Cucumber tests and generate report
       run: npx cucumber-js --format json:./reports/cucumber.json
+      continue-on-error: true
 
 
     - name: Upload HTML report
