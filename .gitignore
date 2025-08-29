@@ -3,3 +3,4 @@ node_modules/
 src/config/.env
 logs/
 reports/
+load-report/
