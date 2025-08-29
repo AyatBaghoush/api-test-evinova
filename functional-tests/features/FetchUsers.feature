@@ -11,3 +11,4 @@ Scenario: Listing all users of the application
   When  I retrieve the list of users
   Then  I should receive a response code 200
   And   Response should contain list of users
+  And   Response should match JSON schema "user-list-schema.js"

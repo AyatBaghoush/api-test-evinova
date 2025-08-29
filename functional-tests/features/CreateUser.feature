@@ -10,7 +10,7 @@ Scenario: Creating a new user
   And   I set payload to have valid user data
   When  I send request to create a new user
   Then  I should receive a response code 200
-  And   Response should match JSON schema "UserCreateSchema.js"
+  And   Response should match JSON schema "create-user-schema.js"
 
 
 @CreateUserNegative
