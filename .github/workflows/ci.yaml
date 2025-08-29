@@ -20,7 +20,7 @@ jobs:
       run: docker build -t cucumber-tests .
 
     - name: Run tests inside Docker
-      run: docker run --name cucumber-tests-container -d BASE_URL=$BASE_URL cucumber-tests
+      run: docker run -d --name cucumber-tests-container -e BASE_URL=$BASE_URL cucumber-tests
 
     - name: Wait for tests to finish
       run: docker wait cucumber-tests-container
