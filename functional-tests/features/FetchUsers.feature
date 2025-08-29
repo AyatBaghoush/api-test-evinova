@@ -9,5 +9,5 @@ Scenario: Listing all users of the application
   Given The "Fetch Users" service is available
   #And I request page <page> with <per_page> users per page
   When  I retrieve the list of users
-  Then  I should receive a successful response 200
+  Then  I should receive a response code 200
   And   Response should contain list of users
