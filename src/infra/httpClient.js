@@ -12,9 +12,11 @@ class HttpClient {
     if (!process.env.DEFAULT_HEADERS)
     {
         logger.warn('DEFAULT_HEADERS is not defined in your .env file. Using empty headers.');
+        this.defaultHeaders =  {"x-api-key":"reqres-free-v1","Accept":"*/*"};
     }
     else {
-      this.defaultHeaders =  {"x-api-key":"reqres-free-v1","Accept":"*/*"};
+     logger.info("Default headers exist in .env")
+     this.defaultHeaders = JSON.parse(process.env.DEFAULT_HEADERS);
     }
 
     
@@ -48,7 +50,7 @@ class HttpClient {
       .set(this._mergeHeaders(headers));
   }
 
-  async post(endpoint, {body = {}, pathParams = {}, queryParams = {}, headers = {} } = {}) {
+  async post(endpoint, body, { pathParams = {}, queryParams = {}, headers = {} } = {}) {
     logger.debug(`POST Request to ${endpoint} with pathParams: ${JSON.stringify(pathParams)}, queryParams: ${JSON.stringify(queryParams)}, body: ${JSON.stringify(body)}`);
     const finalEndpoint = this._buildEndpoint(endpoint, pathParams);
     return request(this.baseUrl)
