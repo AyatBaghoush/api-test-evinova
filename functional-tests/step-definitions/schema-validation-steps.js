@@ -15,6 +15,6 @@ Then('Response should match JSON schema {string}', async function (schemaFile) {
   }
 
   // Register schema
-  validator.registerSchema('userList', schema);
-  expect(() => validator.validate('userList', this.response.body)).to.not.throw();
+  validator.registerSchema(schemaFile, schema);
+  expect(() => validator.validate(schemaFile, this.response.body)).to.not.throw();
 });
