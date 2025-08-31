@@ -3,10 +3,9 @@ import path from 'path';
 import OpenAI from 'openai';
 
 // --- CONFIGURATION ---
-const PROJECT_DIR = '../../functional-tests/'; // Your framework folder
+const PROJECT_DIR = './functional-tests/'; // Your framework folder
 const OUTPUT_DIR = './docs/';
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY; // Set your API key in env
-
+//const OPENAI_API_KEY = process.env.OPENAI_API_KEY; // Set your API key in env
 const openai = new OpenAI({ apiKey: OPENAI_API_KEY });
 
 // --- UTILITY: Read all JS/TS files recursively ---
@@ -48,7 +47,7 @@ ${code}
   `;
 
   const response = await openai.chat.completions.create({
-    model: 'gpt-3.5-turbo',
+    model: 'gpt-5',
     messages: [{ role: 'user', content: prompt }],
     max_tokens: 3000
   });
@@ -56,6 +55,30 @@ ${code}
   return response.choices[0].message.content;
 }
 
+
+async function callDeepSeek(prompt) {
+  try {
+    const response = await axios.post(
+      'https://api.deepseek.com/v1/chat/completions',
+      {
+        model: 'deepseek-chat',
+        messages: [{ role: 'user', content: prompt }],
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.DEEPSEEK_API_KEY}`,
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+
+    console.log('AI Response:', response.data.choices[0].message.content);
+  } catch (error) {
+    console.error('Error calling DeepSeek:', error.response?.data || error.message);
+  }
+}
+
+//callDeepSeek("Explain how BDD works in test automation.");
 // --- STEP 3: Save generated Markdown ---
 async function saveDocs() {
   try {
@@ -73,5 +96,4 @@ async function saveDocs() {
     console.error('❌ Error generating documentation:', error);
   }
 }
-
 saveDocs();
