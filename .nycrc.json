@@ -1,0 +1,15 @@
+{
+    "all": true,
+     "reporter": ["html",
+        "text-summary"
+    ],
+    "extension" : [".js"],
+    "include": [
+        "functional-tests/**/*.js"
+    ],
+    "exclude": [
+        "node_modules/**",
+        "reports/**",
+        "load-report"
+    ]
+}
