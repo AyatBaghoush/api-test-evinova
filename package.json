@@ -7,7 +7,8 @@
     "test:ci": "npx cucumber-js --format json:./reports/cucumber.json",
     "report:generate": "npx allure generate --clean ./reports/allure-results -o ./reports/allure-report",
     "report:open": "npx allure open ./reports/allure-report",
-    "test:report": "npm run test || true && npm run report:generate && npm run report:open"
+    "test:report": "npm run test || true && npm run report:generate && npm run report:open",
+    "coverage": "nyc --silent npm run test ;  nyc report --reporter=lcov --reporter=html --reporter=text-summary"
   },
   "repository": {
     "type": "gsit",
@@ -32,6 +33,7 @@
     "joi": "^18.0.1",
     "k6": "^0.0.0",
     "mint": "^4.2.93",
+    "nyc": "^17.1.0",
     "supertest": "^7.1.4"
   },
   "dependencies": {
