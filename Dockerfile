@@ -8,5 +8,5 @@ RUN npm install
 COPY . .
 
 # Run tests 
-CMD ["sh", "-c", "npm run test:ci && tail -f /dev/null"]
+CMD ["sh", "-c", "npm run test"]
 #RUN npm run test:ci
