@@ -11,6 +11,7 @@ Welcome to the API Test Automation Framework built with Behavior-Driven Developm
 - **Containerization:** Use docker for running tests on container.
 - **CI/CD Integration:** CI/CD integration with Github Actions
 - **Documentation Auto-generation:** Auto-generate framework dodumentation using Mintlify
+- **Code Coverage:** Measuring code coverage using nyc
 
 
 ## api-test-evinova/
@@ -66,6 +67,10 @@ Welcome to the API Test Automation Framework built with Behavior-Driven Developm
     ```bash
     npm run test:report
     ```
+- API Functional Tests: Run all cucumber tests with measuring code coverage:
+  ```bash
+  npm run test:coverage
+  ```
 - API Load Test: Run specific load test:
     ```bash
     K6 run <load-test-file>
