@@ -3,8 +3,7 @@ module.exports = {
         paths: ["./functional-tests/features"],
         dryRun: false,
       require: [
-            "./functional-tests/step-definitions/**/*.js",
-            "./src/helpers/**/*.js"
+            "./functional-tests/step-definitions/**/*.js"
         ],
         format: [
             "progress-bar",
