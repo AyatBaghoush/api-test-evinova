@@ -9,7 +9,7 @@
     "report:open": "npx allure open ./reports/allure-report",
     "test:report": "npm run test || true && npm run report:generate && npm run report:open",
     "test:coverage": "nyc --silent npm run test &&  nyc report --reporter=lcov --reporter=html --reporter=text-summary && open ./coverage/index.html",
-    "load-report" : "open ./load-report/k6-report.html"
+    "load-report": "open ./load-report/k6-report.html"
   },
   "repository": {
     "type": "gsit",
