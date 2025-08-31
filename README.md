@@ -32,6 +32,7 @@ Welcome to the API Test Automation Framework built with Behavior-Driven Developm
 ├── docs/                   # Mintlify configuration and .mdx files
 ├── .github/workflows       # CI/CD yaml file
 ├── cucumber.js             # Cucumber configuration
+├── nycrc.json              # NYC configuration
 ├── package.json            # Project dependencies and scripts
 ├── Dockerfile              # Dockerfile for containerization
 └── README.md               # Framework documentation
