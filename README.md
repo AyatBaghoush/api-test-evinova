@@ -74,7 +74,7 @@ Welcome to the API Test Automation Framework built with Behavior-Driven Developm
   ```
 - API Load Test: Run specific load test:
     ```bash
-    K6 run <load-test-file>
+    mkdir -p ./load-report && K6 run <load-test-file>
     ```
 - API Load Tests: View load test report:
     ```bash
