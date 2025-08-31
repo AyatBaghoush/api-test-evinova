@@ -1,12 +1,14 @@
 import fs from 'fs';
 import path from 'path';
 import OpenAI from 'openai';
+import axios from 'axios';
 
 // --- CONFIGURATION ---
 const PROJECT_DIR = './functional-tests/'; // Your framework folder
 const OUTPUT_DIR = './docs/';
 //const OPENAI_API_KEY = process.env.OPENAI_API_KEY; // Set your API key in env
-const openai = new OpenAI({ apiKey: OPENAI_API_KEY });
+const key = process.env.OPENAI_API_KEY
+
 
 // --- UTILITY: Read all JS/TS files recursively ---
 function readFiles(dir) {
@@ -27,8 +29,6 @@ function readFiles(dir) {
 
 // --- STEP 1: Collect all code from framework ---
 const codeContent = readFiles(PROJECT_DIR);
-
-// --- STEP 2: Generate documentation using OpenAI ---
 async function generateDocumentation(code) {
   const prompt = `
 You are a developer documentation generator.
@@ -46,39 +46,33 @@ Code:
 ${code}
   `;
 
-  const response = await openai.chat.completions.create({
-    model: 'gpt-5',
-    messages: [{ role: 'user', content: prompt }],
-    max_tokens: 3000
-  });
-
-  return response.choices[0].message.content;
-}
-
-
-async function callDeepSeek(prompt) {
   try {
     const response = await axios.post(
-      'https://api.deepseek.com/v1/chat/completions',
+      'https://api.cohere.ai/v1/generate',
       {
-        model: 'deepseek-chat',
-        messages: [{ role: 'user', content: prompt }],
+        model: 'command',
+        prompt: prompt,
+        max_tokens: 3000,
+        temperature: 0.5,
+        k: 0,
+        p: 1,
+        stop_sequences: [],
+        return_likelihoods: 'NONE'
       },
       {
         headers: {
-          Authorization: `Bearer ${process.env.DEEPSEEK_API_KEY}`,
-          'Content-Type': 'application/json',
-        },
+          Authorization: `Bearer ${key}`,
+          'Content-Type': 'application/json'
+        }
       }
     );
 
-    console.log('AI Response:', response.data.choices[0].message.content);
+    return response.data.generations[0].text;
   } catch (error) {
-    console.error('Error calling DeepSeek:', error.response?.data || error.message);
+    console.error('❌ Error calling Cohere:', error.response?.data || error.message);
+    return '';
   }
 }
-
-//callDeepSeek("Explain how BDD works in test automation.");
 // --- STEP 3: Save generated Markdown ---
 async function saveDocs() {
   try {
@@ -95,5 +89,9 @@ async function saveDocs() {
   } catch (error) {
     console.error('❌ Error generating documentation:', error);
   }
+
 }
+
+
+
 saveDocs();
