@@ -14,8 +14,7 @@ Welcome to the API Test Automation Framework built with Behavior-Driven Developm
 
 
 ## api-test-evinova/
-```
-├── docs/                   # Mintlify configuration and .mdx files 
+``` 
 ├── functional-tests/       # Functional testing 
 │   ├── features/
 │   ├── step-definitions/
@@ -29,6 +28,8 @@ Welcome to the API Test Automation Framework built with Behavior-Driven Developm
 │   ├── infra/              # Infrastructure for HTTP calls (Wrapper on top of Supertest)
 │   ├── test-data/          # Test data (Schemas, Endpoints,..)
 │   └── helpers/            # Helper classes (e.g., logger)
+├── docs/                   # Mintlify configuration and .mdx files
+├── .github/workflows       # CI/CD yaml file
 ├── cucumber.js             # Cucumber configuration
 ├── package.json            # Project dependencies and scripts
 ├── Dockerfile              # Dockerfile for containerization
