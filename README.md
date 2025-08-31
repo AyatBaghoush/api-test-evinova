@@ -58,7 +58,7 @@ Welcome to the API Test Automation Framework built with Behavior-Driven Developm
 ---
 
 
-## Running Tests
+## Running Tests & Viewing Reports
 
 - API Functional Tests: Run all Cucumber feature tests:
     ```bash
@@ -75,6 +75,10 @@ Welcome to the API Test Automation Framework built with Behavior-Driven Developm
 - API Load Test: Run specific load test:
     ```bash
     K6 run <load-test-file>
+    ```
+- API Load Tests: View load test report:
+    ```bash
+    npm run load-report
     ```
 - Generate Allure Report:
     ```bash
