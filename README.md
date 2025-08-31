@@ -40,7 +40,7 @@ Welcome to the API Test Automation Framework built with Behavior-Driven Developm
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/AyatBaghoush/api-test-evinova.git
+    git clone --recurse-submodules https://github.com/AyatBaghoush/api-test-evinova.git
     cd api-test-evinova
     ```
 
