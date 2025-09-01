@@ -88,6 +88,11 @@ Welcome to the API Test Automation Framework built with Behavior-Driven Developm
     ```bash
     npm run report:open
     ```
+- Open Mintlify Documentation:
+    ```bash
+    cd docs
+    npx mind dev
+    ```
 ---
 ## Docker Container Support
 To spin up test environment and run tests inside container:
