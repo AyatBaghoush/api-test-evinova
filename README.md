@@ -52,9 +52,6 @@ Welcome to the API Test Automation Framework built with Behavior-Driven Developm
     npm install
     ```
 
-3. **Configure environment:**
-    - Create `.env` inside ./src/config/ and fill in required values.
-
 ---
 
 
@@ -91,7 +88,7 @@ Welcome to the API Test Automation Framework built with Behavior-Driven Developm
 - Open Mintlify Documentation:
     ```bash
     cd docs
-    npx mind dev
+    npx mint dev
     ```
 ---
 ## Docker Container Support
