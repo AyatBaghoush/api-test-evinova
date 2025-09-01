@@ -107,4 +107,4 @@ To spin up test environment and run tests inside container:
    ```
 ---
 ## CI/CD Link:
-[Link to CI/CD Runs]([https://example.com](https://github.com/AyatBaghoush/api-test-evinova/actions/runs))
+[Link to CI/CD Runs](https://github.com/AyatBaghoush/api-test-evinova/actions/)
