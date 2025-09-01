@@ -105,3 +105,8 @@ To spin up test environment and run tests inside container:
    ```bash
    npm run report:generate && npm run report:open
    ```
+---
+## CI/CD Link:
+```bash
+https://github.com/AyatBaghoush/api-test-evinova/actions/runs/17373641110
+```
